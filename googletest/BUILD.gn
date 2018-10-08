@@ -1,0 +1,19 @@
+config("gtest-public-headers") {
+  include_dirs = ["include"]
+}
+
+
+source_set("gtest") {
+  sources = [
+    "src/gtest-all.cc",
+  ]
+
+  include_dirs = [
+    "src",  
+    "."
+  ]
+
+  public_configs = [":gtest-public-headers"]
+
+  cflags_cc = ["-g","-Wall","-Wextra", "-pthread","-std=c++11"]
+}
